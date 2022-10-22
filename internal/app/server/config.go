@@ -20,7 +20,7 @@ func NewConfig() string {
 }
 
 func getEnvFromFile() (string, string) {
-	viper.SetConfigFile("./../../configs/.env")
+	viper.SetConfigFile("./../configs/.env")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatal(err)
