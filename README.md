@@ -7,7 +7,7 @@ QR Code Reader service by Golang and a scanning library zxing
 ## Features
 
 - read from file
-- read from url
+- read from file by url
 
 
 ## Supported image format types
