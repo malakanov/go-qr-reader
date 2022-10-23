@@ -29,7 +29,7 @@ func init() {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/scan", server.ScanHandler)
+	mux.HandleFunc("/file", server.FileHandler)
 	httpServer := &http.Server{Addr: addr, Handler: mux}
 	fmt.Println("Server running on: ", addr)
 	err := httpServer.ListenAndServe()

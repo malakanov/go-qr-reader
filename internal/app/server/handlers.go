@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func ScanHandler(w http.ResponseWriter, r *http.Request) {
+func FileHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
