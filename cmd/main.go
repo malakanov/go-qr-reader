@@ -30,6 +30,7 @@ func init() {
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/file", server.FileHandler)
+	mux.HandleFunc("/url", server.UrlHandler)
 	httpServer := &http.Server{Addr: addr, Handler: mux}
 	fmt.Println("Server running on: ", addr)
 	err := httpServer.ListenAndServe()
