@@ -20,7 +20,8 @@ import (
 )
 
 var (
-	addr string
+	addr   string
+	prefix string = "/api"
 )
 
 func init() {
@@ -29,8 +30,8 @@ func init() {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/file", server.FileHandler)
-	mux.HandleFunc("/url", server.UrlHandler)
+	mux.HandleFunc(prefix+"/file", server.FileHandler)
+	mux.HandleFunc(prefix+"/url", server.UrlHandler)
 	httpServer := &http.Server{Addr: addr, Handler: mux}
 	fmt.Println("Server running on: ", addr)
 	err := httpServer.ListenAndServe()
