@@ -3,16 +3,17 @@ package libs
 import (
 	"bytes"
 	"fmt"
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/multi/qrcode"
 	"image"
 	"strings"
+
+	"github.com/makiuchi-d/gozxing"
+	"github.com/makiuchi-d/gozxing/multi/qrcode"
 )
 
 func Scan(b []byte) (string, string) {
 	img, _, err := image.Decode(bytes.NewReader(b))
 	if err != nil {
-		msg := fmt.Sprintf("failed to read image: %v", err)
+		msg := fmt.Sprintf("Failed to read image: %v", err)
 		return "", msg
 	}
 
@@ -21,14 +22,14 @@ func Scan(b []byte) (string, string) {
 	bbm, err := gozxing.NewBinaryBitmap(bin)
 
 	if err != nil {
-		msg := fmt.Sprintf("error during processing: %v", err)
+		msg := fmt.Sprintf("Error during processing: %v", err)
 		return "", msg
 	}
 
 	qrReader := qrcode.NewQRCodeMultiReader()
 	result, err := qrReader.DecodeMultiple(bbm, nil)
 	if err != nil {
-		msg := fmt.Sprintf("unable to decode QRCode: %v", err)
+		msg := fmt.Sprintf("Unable to decode QRCode: %v", err)
 		return "", msg
 	}
 	strRes := []string{}
